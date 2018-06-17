@@ -1,3 +1,5 @@
+# PromiEvent
+
 A TypeScript implementation of a Promise that can also emit events.
 
 [![npm version](https://badge.fury.io/js/promievent.svg)](https://badge.fury.io/js/promievent)
@@ -12,7 +14,7 @@ Using [node.js](https://nodejs.org/):
 npm install --save promievent
 ```
 
-# Usage
+## Usage
 
 A PromiEvent can be used as a standard promise or an EventEmmiter, but it's best when used together. In the following example, the promise is resolved after 10 seconds but on each second a `interval` event is emitted. An event is also emitted on the first and last second.
 
