@@ -1,0 +1,31 @@
+{
+  "name": "promievent",
+  "version": "0.0.1",
+  "description": "A TypeScript implementation of a Promise that can also emit events",
+  "main": "PromiEvent.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/naddison36/promievent.git"
+  },
+  "devDependencies": {
+    "@types/jest": "^23.0.2",
+    "@types/node": "^10",
+    "jest": "^23.1.0"
+  },
+  "keywords": [
+    "TypeScript",
+    "Promise",
+    "Event",
+    "EventEmitter",
+    "Emit"
+  ],
+  "author": "Nick Addison",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/naddison36/promievent/issues"
+  },
+  "homepage": "https://github.com/naddison36/promievent#readme"
+}

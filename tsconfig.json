@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "declaration": false,
+        "module": "CommonJS",
+        "target": "es2017",
+        "noImplicitAny": true,
+        "noLib": false,
+        "noImplicitReturns": true,
+        "noFallthroughCasesInSwitch": true,
+        "moduleResolution": "node",
+        "sourceMap": true,
+        "strict": true
+    },
+    "exclude": [
+        "node_modules"
+    ]
+}
