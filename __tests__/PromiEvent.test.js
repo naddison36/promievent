@@ -98,11 +98,18 @@ describe("PromiEvent", () => {
             promiEvent.then((count) => {
                 expect(count).toEqual(10);
                 done();
+            }).catch((err) => {
+                console.log(`Something bad happened ${err.message}`);
             });
         });
         test("resolve with await", async () => {
             expect.assertions(1);
-            expect(await promiEvent).toEqual(10);
+            try {
+                expect(await promiEvent).toEqual(10);
+            }
+            catch (err) {
+                console.log(`Something bad happened ${err.message}`);
+            }
         });
     });
     describe("static functions", () => {

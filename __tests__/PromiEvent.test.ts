@@ -156,6 +156,9 @@ describe("PromiEvent", ()=>
 			{
 				expect(count).toEqual(10)
 				done()
+			}).catch((err)=>
+			{
+				console.log(`Something bad happened ${err.message}`)
 			})
 		})
 
@@ -163,7 +166,12 @@ describe("PromiEvent", ()=>
 		{
 			expect.assertions(1)
 
-			expect(await promiEvent).toEqual(10)
+			try {
+				expect(await promiEvent).toEqual(10)
+			}
+			catch (err) {
+				console.log(`Something bad happened ${err.message}`)
+			}
 		})
 	})
 

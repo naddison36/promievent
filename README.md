@@ -52,7 +52,7 @@ promiEvent.on('interval', (count: number)=>
 })
 ```
 
-The following registed an `interval` event listener that is only fired once. This will only print one line.
+The following register an `interval` event listener that is only fired once. This will only print one line.
 ```TypeScript
 promiEvent.once('interval', (count: number)=>
 {
@@ -65,13 +65,23 @@ The following will resolve the promise and print one line with a count of 10.
 promiEvent.then((count)=>
 {
     console.log(`interval number ${count}`)
+}).catch((err)=>
+{
+	console.log(`Something bad happened ${err.message}`)
+	// error handling
 })
 ```
 
 Or you can resolve the promise using async/await assuming this code is in an async function.
 ```TypeScript
-const count = await promiEvent
-console.log(`interval number ${count}`)
+try {
+	const count = await promiEvent
+	console.log(`interval number ${count}`)
+}
+catch (err) {
+	console.log(`Something bad happened ${err.message}`)
+	// error handling
+}
 ```
 
 ## Credits
