@@ -76,9 +76,9 @@ console.log(`interval number ${count}`)
 
 ## Credits
 
-The inspiration for a Promise that emits events has come from @frozeman's [Callbacks Promises Events](https://web3js.readthedocs.io/en/1.0/callbacks-promises-events.html) in the Ethereum [web3.js 1.x](https://github.com/ethereum/web3.js) project. The JavaScript implementation is in [web3-core-promievent](https://github.com/ethereum/web3.js/blob/1.0/packages/web3-core-promievent/src/index.js).
+The inspiration for a Promise that emits events has come from [Fabian Vogelsteller](https://github.com/frozeman)'s [Callbacks Promises Events](https://web3js.readthedocs.io/en/1.0/callbacks-promises-events.html) in the Ethereum [web3.js 1.x](https://github.com/ethereum/web3.js) project. The JavaScript implementation is in [web3-core-promievent](https://github.com/ethereum/web3.js/blob/1.0/packages/web3-core-promievent/src/index.js).
 
-The TypeScript implementation also got influence from @matthewmueller's [comments](https://github.com/Microsoft/TypeScript/issues/15202#issuecomment-318900991) on an issue in Microsoft's [TypeScript GitHub repo](https://github.com/Microsoft/TypeScript).
+The TypeScript implementation also got influence from [Matthew Mueller](https://github.com/matthewmueller)'s [comments](https://github.com/Microsoft/TypeScript/issues/15202#issuecomment-318900991) on an issue in Microsoft's [TypeScript GitHub repo](https://github.com/Microsoft/TypeScript).
 
 ## License
 
