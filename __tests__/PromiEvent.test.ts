@@ -175,6 +175,44 @@ describe("PromiEvent", ()=>
 		})
 	})
 
+	describe("Reject from new PromiEvent", ()=>
+	{
+        let promiEvent: PromiEvent<number>
+
+		beforeEach(() => {
+
+			promiEvent = new PromiEvent<number>((resolve, reject) =>
+            {
+                setTimeout(() => {
+                    reject(new Error('Some error'))
+                }, 1000)
+            })
+		})
+
+        test("with catch", async(done)=>
+        {
+            expect.assertions(1)
+
+            promiEvent.catch((err: Error)=>
+            {
+                expect(err).toBeInstanceOf(Error)
+                done()
+            })
+        })
+
+        test("with try/catch", async(done)=>
+        {
+            expect.assertions(1)
+
+			try {
+            	await promiEvent
+			} catch (err) {
+                expect(err).toBeInstanceOf(Error)
+                done()
+			}
+        })
+	})
+
 	describe("static functions", ()=>
 	{
 		test("resolve", async()=>

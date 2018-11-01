@@ -112,6 +112,33 @@ describe("PromiEvent", () => {
             }
         });
     });
+    describe("Reject from new PromiEvent", () => {
+        let promiEvent;
+        beforeEach(() => {
+            promiEvent = new PromiEvent_1.default((resolve, reject) => {
+                setTimeout(() => {
+                    reject(new Error('Some error'));
+                }, 1000);
+            });
+        });
+        test("with catch", async (done) => {
+            expect.assertions(1);
+            promiEvent.catch((err) => {
+                expect(err).toBeInstanceOf(Error);
+                done();
+            });
+        });
+        test("with try/catch", async (done) => {
+            expect.assertions(1);
+            try {
+                await promiEvent;
+            }
+            catch (err) {
+                expect(err).toBeInstanceOf(Error);
+                done();
+            }
+        });
+    });
     describe("static functions", () => {
         test("resolve", async () => {
             const promiEvent = PromiEvent_1.default.resolve('Result');
