@@ -33,7 +33,7 @@ class PromiEvent extends events_1.EventEmitter {
     }
     // used if you want to create a PromiEvent for a known failure
     static reject(reason) {
-        return new PromiEvent((resolve, reject) => {
+        return new PromiEvent((_resolve, reject) => {
             reject(reason);
         });
     }

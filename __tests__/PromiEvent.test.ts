@@ -1,5 +1,4 @@
 
-import {} from 'jest'
 import PromiEvent from '../PromiEvent'
 
 describe("PromiEvent", ()=>
@@ -8,7 +7,7 @@ describe("PromiEvent", ()=>
 	{
 		expect.assertions(2)
 
-		const promiEvent = new PromiEvent<string>((resolve, reject) =>
+		const promiEvent = new PromiEvent<string>((resolve) =>
 		{
 			setTimeout(()=>
 			{
@@ -48,7 +47,7 @@ describe("PromiEvent", ()=>
 		})
 
 		try {
-			const result = await promiEvent
+			await promiEvent
 		}
 		catch (reason) {
 			expect(reason).toEqual('Reject!')
@@ -61,7 +60,7 @@ describe("PromiEvent", ()=>
 
 		beforeEach(()=>
 		{
-			promiEvent = new PromiEvent<number>((resolve, reject) =>
+			promiEvent = new PromiEvent<number>((resolve) =>
 			{
 				let counter = 0
 

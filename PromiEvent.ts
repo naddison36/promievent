@@ -57,7 +57,7 @@ export default class PromiEvent<T> extends EventEmitter implements Promise<T>
 	// used if you want to create a PromiEvent for a known failure
 	static reject<T>(reason: any): PromiEvent<T>
 	{
-		return new PromiEvent<T>((resolve, reject)=>
+		return new PromiEvent<T>((_resolve, reject)=>
 		{
 			reject(reason)
 		})

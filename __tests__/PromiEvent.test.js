@@ -4,7 +4,7 @@ const PromiEvent_1 = require("../PromiEvent");
 describe("PromiEvent", () => {
     test("setTimeout resolve", async () => {
         expect.assertions(2);
-        const promiEvent = new PromiEvent_1.default((resolve, reject) => {
+        const promiEvent = new PromiEvent_1.default((resolve) => {
             setTimeout(() => {
                 promiEvent.emit('done', 'Done!');
                 resolve('Hello!');
@@ -28,7 +28,7 @@ describe("PromiEvent", () => {
             expect(param).toEqual('Done!');
         });
         try {
-            const result = await promiEvent;
+            await promiEvent;
         }
         catch (reason) {
             expect(reason).toEqual('Reject!');
@@ -37,7 +37,7 @@ describe("PromiEvent", () => {
     describe("setInterval", () => {
         let promiEvent;
         beforeEach(() => {
-            promiEvent = new PromiEvent_1.default((resolve, reject) => {
+            promiEvent = new PromiEvent_1.default((resolve) => {
                 let counter = 0;
                 const timer = setInterval(() => {
                     counter++;
