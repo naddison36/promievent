@@ -25,6 +25,10 @@ class PromiEvent extends events_1.EventEmitter {
     catch(onRejected) {
         return this.promise.catch(onRejected);
     }
+    // the same signature as Promise.finally
+    finally(onfinally) {
+        return this.promise.finally(onfinally);
+    }
     // used if you want to create a PromiEvent for a known value
     static resolve(value) {
         return new PromiEvent((resolve) => {

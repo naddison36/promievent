@@ -1,5 +1,5 @@
 
-import {EventEmitter} from 'events';
+import {EventEmitter} from 'events'
 
 // Promise function types
 declare type Resolve<T> = (value?: T | PromiseLike<T>) => void
@@ -17,7 +17,7 @@ declare type Reject = (reason?: any) => void
 export default class PromiEvent<T> extends EventEmitter implements Promise<T>
 {
 	private readonly promise: Promise<T>
-	readonly [Symbol.toStringTag]: "Promise"
+	readonly [Symbol.toStringTag]: 'Promise'
 
 	// Have the same constructor as a Promise
 	constructor(executor: (resolve: Resolve<T>, reject: Reject) => void)
@@ -43,6 +43,11 @@ export default class PromiEvent<T> extends EventEmitter implements Promise<T>
 	): Promise<T | TResult>
 	{
 		return this.promise.catch(onRejected)
+	}
+
+	// the same signature as Promise.finally
+	public finally(onfinally?: (() => void) | null | undefined): Promise<T> {
+		return this.promise.finally(onfinally)
 	}
 
 	// used if you want to create a PromiEvent for a known value

@@ -1,6 +1,6 @@
 {
   "name": "promievent",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "description": "A TypeScript implementation of a Promise that can also emit events",
   "main": "PromiEvent.js",
   "scripts": {
@@ -11,10 +11,11 @@
     "url": "git+https://github.com/naddison36/promievent.git"
   },
   "devDependencies": {
-    "@types/jest": "^23.3.10",
-    "@types/node": "^10.12.12",
-    "jest": "^23.6.0",
-    "typescript": "^3.2.1"
+    "@types/jest": "^24.0.11",
+    "@types/node": "^11.11.3",
+    "jest": "^24.5.0",
+    "ts-jest": "^24.0.0",
+    "typescript": "^3.3.3333"
   },
   "keywords": [
     "TypeScript",

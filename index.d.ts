@@ -21,6 +21,8 @@ declare class PromiEvent<T> extends EventEmitter implements PromiseLike<T>
 		onRejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null
 	): Promise<T | TResult>;
 
+	public finally(onfinally?: (() => void) | null | undefined): Promise<T>;
+
 	static resolve<T>(value: T): PromiEvent<T>;
 	static reject<T>(reason: any): PromiEvent<T>;
 }
