@@ -14,6 +14,12 @@ Using [node.js](https://nodejs.org/):
 npm install --save promievent
 ```
 
+## Node version support
+
+Version 0.1.x supports `PromiEvent.finally()` so needs to run on Node.js 10 or higher as it uses native `Promise.prototype.finally`. See [Node.js ES2015 Support](https://node.green/#ES2018-features-Promise-prototype-finally) for more details.
+
+Version 0.0.x works on Node.js 8.
+
 ## Usage
 
 A PromiEvent can be used as a standard promise or an EventEmmiter, but it's best when used together. In the following example, the promise is resolved after 10 seconds but on each second a `interval` event is emitted. An event is also emitted on the first and last second.

@@ -99,7 +99,22 @@ describe("PromiEvent", () => {
                 expect(count).toEqual(10);
                 done();
             }).catch((err) => {
-                console.log(`Something bad happened ${err.message}`);
+                // Should not get here
+                expect(false).toBeTruthy();
+            });
+        });
+        test("resolve with finally", async (done) => {
+            expect.assertions(2);
+            let returnedCount = 0;
+            promiEvent.then((count) => {
+                expect(count).toEqual(10);
+                returnedCount = count;
+            }).catch((err) => {
+                // Should not get here
+                expect(false).toBeTruthy();
+            }).finally(() => {
+                expect(returnedCount).toEqual(10);
+                done();
             });
         });
         test("resolve with await", async () => {
@@ -108,7 +123,8 @@ describe("PromiEvent", () => {
                 expect(await promiEvent).toEqual(10);
             }
             catch (err) {
-                console.log(`Something bad happened ${err.message}`);
+                // Should not get here
+                expect(false).toBeTruthy();
             }
         });
     });
@@ -125,6 +141,14 @@ describe("PromiEvent", () => {
             expect.assertions(1);
             promiEvent.catch((err) => {
                 expect(err).toBeInstanceOf(Error);
+                done();
+            });
+        });
+        test("with finally", async (done) => {
+            expect.assertions(1);
+            promiEvent.catch((err) => {
+                expect(err).toBeInstanceOf(Error);
+            }).finally(() => {
                 done();
             });
         });

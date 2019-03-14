@@ -39,7 +39,7 @@ describe("PromiEvent", ()=>
 				reject('Reject!')
 			}, 100)
 		})
-		
+
 
 		promiEvent.on('done', (param)=>
 		{
@@ -157,7 +157,29 @@ describe("PromiEvent", ()=>
 				done()
 			}).catch((err)=>
 			{
-				console.log(`Something bad happened ${err.message}`)
+				// Should not get here
+				expect(false).toBeTruthy()
+			})
+		})
+
+		test("resolve with finally", async(done)=>
+		{
+			expect.assertions(2)
+
+			let returnedCount = 0
+
+			promiEvent.then((count)=>
+			{
+				expect(count).toEqual(10)
+				returnedCount = count
+			}).catch((err)=>
+			{
+				// Should not get here
+				expect(false).toBeTruthy()
+			}).finally(() =>
+			{
+				expect(returnedCount).toEqual(10)
+				done()
 			})
 		})
 
@@ -169,7 +191,8 @@ describe("PromiEvent", ()=>
 				expect(await promiEvent).toEqual(10)
 			}
 			catch (err) {
-				console.log(`Something bad happened ${err.message}`)
+				// Should not get here
+				expect(false).toBeTruthy()
 			}
 		})
 	})
@@ -198,6 +221,18 @@ describe("PromiEvent", ()=>
                 done()
             })
         })
+
+		test("with finally", async(done)=>
+		{
+			expect.assertions(1)
+
+			promiEvent.catch((err: Error)=>
+			{
+				expect(err).toBeInstanceOf(Error)
+			}).finally(() => {
+				done()
+			})
+		})
 
         test("with try/catch", async(done)=>
         {
