@@ -20,7 +20,7 @@ export default class PromiEvent<T> extends EventEmitter implements Promise<T>
 	readonly [Symbol.toStringTag]: 'Promise'
 
 	// Have the same constructor as a Promise
-	constructor(executor: (resolve: Resolve<T>, reject: Reject) => void)
+	constructor(executor: (resolve: (value: T | PromiseLike<T>) => void, reject: (reason?: any) => void) => void)
 	{
 		// call the EventEmitter constructor
 		super()

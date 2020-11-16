@@ -24,7 +24,7 @@ Version 0.0.x works on Node.js 8.
 
 A PromiEvent can be used as a standard promise or an EventEmmiter, but it's best when used together. In the following example, the promise is resolved after 10 seconds but on each second a `interval` event is emitted. An event is also emitted on the first and last second.
 
-```TypeScript
+```ts
 const promiEvent = new PromiEvent<number>((resolve, reject) =>
 {
     let counter = 0
@@ -51,7 +51,7 @@ const promiEvent = new PromiEvent<number>((resolve, reject) =>
 ```
 
 The following registers an `interval` event listener with the EventEmitter. This will print 10 lines.
-```TypeScript
+```ts
 promiEvent.on('interval', (count: number)=>
 {
     console.log(`interval number ${count}`)
@@ -67,7 +67,7 @@ promiEvent.once('interval', (count: number)=>
 ```
 
 The following will resolve the promise and print one line with a count of 10.
-```TypeScript
+```ts
 promiEvent.then((count)=>
 {
     console.log(`interval number ${count}`)
@@ -79,7 +79,7 @@ promiEvent.then((count)=>
 ```
 
 Or you can resolve the promise using async/await assuming this code is in an async function.
-```TypeScript
+```ts
 try {
 	const count = await promiEvent
 	console.log(`interval number ${count}`)
